@@ -1,28 +1,57 @@
-# Neural Radiance Fields (NeRF) for Image Generation
+High-Frequency Image Component Modeling with a Fourier Feature MLP
+This project engineers a multilayer perceptron (MLP) to overcome spectral bias, enabling the precise modeling of high-frequency components within images. By implementing a Fourier feature mapping technique, the model can learn and reconstruct intricate image textures with high fidelity.
 
-This project implements a Neural Radiance Field (NeRF) to generate an image. It uses two Multi-Layer Perceptrons (MLPs): a standard MLP and a Fourier Feature MLP. The goal is to learn a continuous representation of an image from a set of input coordinates and their corresponding pixel values.
+🌟 Key Achievements
+Overcame Spectral Bias: Engineered a multilayer perceptron capable of precisely modeling high-frequency components within images, a common challenge for standard MLPs.
 
-## Features
+Fourier Feature Mapping: Implemented a Fourier feature mapping technique that transforms input coordinates, allowing the network to learn complex and intricate image textures.
 
--   **Image Loading and Preprocessing:** Loads an image, converts it to a PyTorch tensor, and crops it to a 512x512 resolution.
--   **Data Generation:** Creates training and testing datasets by mapping pixel coordinates to their RGB values.
--   **Two MLP Architectures:**
-    -   **Feature MLP:** A standard MLP with ReLU activation functions and a final sigmoid activation.
-    -   **Fourier Feature MLP:** An MLP that incorporates Fourier features to better capture high-frequency details in the image.
--   **Model Training:** Trains both MLPs using the Adam optimizer and Mean Squared Error (MSE) loss.
--   **Performance Evaluation:** Measures the performance of the models using the Peak Signal-to-Noise Ratio (PSNR).
--   **Visualization:** Plots the training loss and PSNR values over epochs, and displays the generated image from the best-performing model.
--   **Optimal Scale Search:** For the Fourier Feature MLP, it searches for the optimal scale for the Gaussian Fourier Features.
+Efficient Training: Leveraged the PyTorch framework and CUDA acceleration to construct and efficiently train the neural network, leading to rapid model convergence.
 
-## Requirements
+Superior Image Quality: Achieved a substantial leap in image reconstruction quality, evidenced by a significantly higher Peak Signal-to-Noise Ratio (PSNR) compared to a standard MLP.
 
--   Python 3
--   PyTorch
--   TorchVision
--   Matplotlib
--   NumPy
+🔧 How It Works
+The core of the project is a Neural Radiance Field (NeRF)-like approach where a neural network learns a continuous representation of an image. The network is trained to map 2D pixel coordinates (x, y) to their corresponding RGB color values.
 
-You can install the required Python libraries using pip:
+To overcome the spectral bias of standard MLPs, which struggle with high-frequency details, this project uses Fourier Feature Mapping. Before passing the coordinates to the network, they are transformed into a higher-dimensional feature space using sine and cosine functions of different frequencies. This positional encoding allows the model to capture fine details and sharp edges in the image much more effectively.
 
-```bash
+🛠️ Requirements
+To run this project, you'll need the following libraries:
+
+PyTorch
+
+TorchVision
+
+Matplotlib
+
+NumPy
+
+You can install them using pip:
+
+Bash
+
 pip install torch torchvision matplotlib numpy
+🚀 Usage
+Prepare your image: Place your desired training image in the project directory and name it image.jpg.
+
+Run the notebook: Open and execute the cells in the Experiment_6_21EC39051.ipynb notebook. The notebook is structured to:
+
+Load and preprocess the image.
+
+Train a standard MLP as a baseline.
+
+Train the Fourier Feature MLP.
+
+Evaluate and compare the results using PSNR.
+
+Visualize the reconstructed images.
+
+📊 Results
+The Fourier Feature MLP is expected to demonstrate a significant improvement in image reconstruction quality over the standard MLP. This will be visible in the final generated image, which will be much sharper and more detailed, and will be quantitatively confirmed by a higher PSNR value. The notebook includes plots to visualize the training loss and the PSNR comparison between the models.
+
+
+
+
+
+
+
