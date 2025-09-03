@@ -31,6 +31,7 @@ You can install them using pip:
 Bash
 
 pip install torch torchvision matplotlib numpy
+
 🚀 Usage
 Prepare your image: Place your desired training image in the project directory and name it image.jpg.
 
